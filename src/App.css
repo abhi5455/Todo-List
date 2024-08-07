@@ -1,0 +1,92 @@
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: #001e28;
+    z-index: 100;
+}
+.header h5{
+    position: absolute;
+    left: 90px;
+    top: 2px;
+    color: #ffffff;
+    font-family: Poppins, sans-serif;
+    font-weight: normal;
+}
+
+.main {
+    margin-top: 70px;
+}
+
+.top-group {
+    padding-top: 30px;
+    padding-bottom: 5px;
+    display: flex;
+}
+
+.top-subgroup {
+    margin-left: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+#searchBar {
+    width: 85%;
+    padding: 10px;
+    border: none;
+    height: 20px;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+}
+.searchBar {
+    width: 40%;
+    border-radius: 20px;
+    padding-left: 30px;
+    background: white;
+    color: darkslategrey;
+    margin-left: 30px;
+    position: relative;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+}
+
+.searchButton{
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    background-color: white;
+    border: none;
+}
+
+.button {
+    border: none;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 40px;
+    font-family: Poppins, sans-serif;
+    background: #013141;
+    color: white;
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform .1s;
+}
+
+#showcase {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 60dvh;
+    padding-top: 30px;
+}

@@ -1,0 +1,80 @@
+@media (min-width: 600px) and (max-width: 950px) {
+    .top-subgroup{
+        margin-left: 0;
+        justify-content: center;
+        gap: 10px;
+    }
+    .top-subgroup button{
+        font-size: 75%;
+        height: 35px;
+    }
+    .top-group{
+        padding-top: 20px;
+        flex-direction: column-reverse;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .searchBar{
+        width: 50%;
+        margin-left: 0;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+}
+@media (max-width:600px){
+    #logoIcon{
+        top: 23px;
+        left: 20px;
+        width: 75px;
+        height: 33px;
+    }
+    .todoBox{
+        min-width: 60%;
+        max-width: 75%;
+        font-size: 13px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    .top-group{
+        padding-top: 20px;
+        flex-direction: column-reverse;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .searchBar{
+        width:80%;
+        margin-left: 0;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    #searchBar{
+        height: 18px;
+    }
+    .top-subgroup{
+        margin-left: 0;
+        justify-content: center;
+        gap: 15px;
+    }
+    .icon{
+        width: 21px;
+        height: 21px;
+    }
+    .todoBox p{
+        font-size: 10px;
+        padding-left: 5px;
+    }
+    .top-subgroup button{
+        font-size: 65%;
+        height: 35px;
+    }
+    .blackBox form{
+        width: 350px;
+        left: calc(50% - 175px);
+    }
+}
