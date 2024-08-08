@@ -60,7 +60,7 @@ function App() {
     useEffect(()=>{
         setTodoListElements([]);
         for(let i=0;i<TodoList.length;i++){
-            setTodoListElements(TodoListElements=>[...TodoListElements,<TodoBox key={i} taskName={TodoList[i].name} date={TodoList[i].date} id={TodoList[i].id} updateList={()=> upcomingRef.current.click() } flag={upcomingFlag}></TodoBox>]);
+            setTodoListElements(TodoListElements=>[...TodoListElements,<TodoBox key={i} taskName={TodoList[i].name} date={TodoList[i].date} id={TodoList[i].id} updateList={()=> {upcomingFlag? upcomingRef.current.click(): completedRef.current.click() }} flag={upcomingFlag}></TodoBox>]);
         }
         if(TodoList.length===0){
             setTodoListElements([<HandleEmptyList key={-1}></HandleEmptyList>]);
