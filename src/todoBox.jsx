@@ -7,7 +7,7 @@ export function TodoBox({taskName,date,id, updateList, flag}) {
                 <h3 style={{paddingLeft: 15, overflowWrap: "break-word", scrollbarWidth: "none"}}>{taskName}</h3>
             </div>
 
-            <div style={{
+            <div className={'Div2'} style={{
                 display: 'flex',
                 justifyContent: 'flex-end',
                 flexDirection: 'row',
