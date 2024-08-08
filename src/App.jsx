@@ -20,6 +20,7 @@ function App() {
 
     useEffect(() => {
         function showUpcoming(){
+            setupcomingFlag(true);
             let x=giveStoredList();
             setTodoList([]);
             for(let i=0;i<x.length;i++){
@@ -27,10 +28,10 @@ function App() {
                     setTodoList(TodoList=>[...TodoList, x[i]]);
                 }
             }
-            setupcomingFlag(true);
         }
 
         function showCompleted(){
+            setupcomingFlag(false);
             let x=giveStoredList();
             setTodoList([]);
             for(let i=0;i<x.length;i++){
@@ -38,7 +39,6 @@ function App() {
                     setTodoList(TodoList=>[...TodoList, x[i]]);
                 }
             }
-            setupcomingFlag(false);
         }
 
         upcomingRef.current.addEventListener('click', () => {
@@ -47,6 +47,7 @@ function App() {
 
         completedRef.current.addEventListener('click', () => {
             showCompleted();
+
         })
 
         showUpcoming();
