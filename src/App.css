@@ -80,6 +80,11 @@ input:focus {
     transition: transform .1s;
 }
 
+button.selected {
+    background-color: white;
+    color: #001e28;
+}
+
 #showcase {
     position: absolute;
     display: flex;

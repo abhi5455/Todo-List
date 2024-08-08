@@ -41,16 +41,19 @@ function App() {
             }
         }
 
-        upcomingRef.current.addEventListener('click', () => {
+        upcomingRef.current.addEventListener('click', (e) => {
+            e.target.classList.add("selected");
+            completedRef.current.classList.remove("selected");
             showUpcoming();
         });
 
-        completedRef.current.addEventListener('click', () => {
+        completedRef.current.addEventListener('click', (e) => {
+            e.target.classList.add("selected");
+            upcomingRef.current.classList.remove("selected");
             showCompleted();
-
         })
 
-        showUpcoming();
+        upcomingRef.current.click();
 
     }, []);
 
