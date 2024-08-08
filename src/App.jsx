@@ -14,6 +14,7 @@ function App() {
     let [popupVisible, setPopupVisible] = useState(false);
     let [TodoList, setTodoList] = useState([]);
     let [TodoListElements, setTodoListElements] = useState([]);
+    let [upcomingFlag, setupcomingFlag] = useState(true);
     let upcomingRef = useRef(null);
     let completedRef=useRef(null);
 
@@ -26,6 +27,7 @@ function App() {
                     setTodoList(TodoList=>[...TodoList, x[i]]);
                 }
             }
+            setupcomingFlag(true);
         }
 
         function showCompleted(){
@@ -36,6 +38,7 @@ function App() {
                     setTodoList(TodoList=>[...TodoList, x[i]]);
                 }
             }
+            setupcomingFlag(false);
         }
 
         upcomingRef.current.addEventListener('click', () => {
@@ -53,7 +56,7 @@ function App() {
     useEffect(()=>{
         setTodoListElements([]);
         for(let i=0;i<TodoList.length;i++){
-            setTodoListElements(TodoListElements=>[...TodoListElements,<TodoBox key={i} taskName={TodoList[i].name} date={TodoList[i].date} id={TodoList[i].id} updateList={()=> upcomingRef.current.click() }></TodoBox>]);
+            setTodoListElements(TodoListElements=>[...TodoListElements,<TodoBox key={i} taskName={TodoList[i].name} date={TodoList[i].date} id={TodoList[i].id} updateList={()=> upcomingRef.current.click() } flag={upcomingFlag}></TodoBox>]);
         }
         if(TodoList.length===0){
             setTodoListElements([<HandleEmptyList key={-1}></HandleEmptyList>]);
