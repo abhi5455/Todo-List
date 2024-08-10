@@ -83,6 +83,7 @@ input:focus {
 button.selected {
     background-color: white;
     color: #001e28;
+    transform: scale(1.02);
 }
 
 #showcase {
