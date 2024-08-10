@@ -70,7 +70,6 @@ function App() {
                 }
             }
             else {
-                console.log(x);
                 for(let i=0;i<x.length;i++) {
                     if (x[i].stat === 'completed' && x[i].name.toLowerCase().startsWith(txt.toLowerCase())) {
                         setTodoList(TodoList => [...TodoList, x[i]]);
