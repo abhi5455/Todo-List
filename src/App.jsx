@@ -18,6 +18,8 @@ function App() {
     let upcomingRef = useRef(null);
     let completedRef=useRef(null);
 
+    let searchRef=useRef(null);
+
     useEffect(() => {
         function showUpcoming(){
             setupcomingFlag(true);
@@ -55,6 +57,27 @@ function App() {
 
         upcomingRef.current.click();
 
+        searchRef.current.addEventListener('input', (e) => {
+            e.target.textContent = searchRef.current.value;
+            let txt=e.target.textContent;
+            let x=giveStoredList();
+            setTodoList([]);
+            if(upcomingFlag){
+                for(let i=0;i<x.length;i++) {
+                    if (x[i].stat === 'upcoming' && x[i].name.toLowerCase().startsWith(txt.toLowerCase())) {
+                        setTodoList(TodoList => [...TodoList, x[i]]);
+                    }
+                }
+            }
+            else {
+                console.log(x);
+                for(let i=0;i<x.length;i++) {
+                    if (x[i].stat === 'completed' && x[i].name.toLowerCase().startsWith(txt.toLowerCase())) {
+                        setTodoList(TodoList => [...TodoList, x[i]]);
+                    }
+                }
+            }
+        })
     }, []);
 
     useEffect(()=>{
@@ -75,8 +98,8 @@ function App() {
             </header>
             <main className='main'>
                 <div className='top-group'>
-                    <form className={'searchBar'}>
-                        <input id={'searchBar'} type={'text'} placeholder={'Search your task'}></input>
+                    <form className={'searchBar'} onSubmit={(e)=>{e.preventDefault();}}>
+                        <input id={'searchBar'} type={'text'} placeholder={'Search your task'} ref={searchRef}></input>
                         <button type={'submit'} className={'searchButton'}>
                             <SearchIcon></SearchIcon>
                         </button>
