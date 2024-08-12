@@ -18,6 +18,8 @@ function App() {
     let upcomingRef = useRef(null);
     let completedRef=useRef(null);
 
+    let [searchingElement, setSearchingElement] = useState(<></>);
+
     let searchRef=useRef(null);
 
     useEffect(() => {
@@ -49,6 +51,7 @@ function App() {
             e.target.classList.add("selected");
             completedRef.current.classList.remove("selected");
             searchRef.current.value='';
+            setSearchingElement(<></>);
             showUpcoming();
         });
 
@@ -56,6 +59,7 @@ function App() {
             e.target.classList.add("selected");
             upcomingRef.current.classList.remove("selected");
             searchRef.current.value='';
+            setSearchingElement(<></>);
             showCompleted();
         })
 
@@ -63,9 +67,15 @@ function App() {
 
         searchRef.current.addEventListener('input', (e) => {
             e.target.textContent = searchRef.current.value;
-            let txt=e.target.textContent;
-            let x=giveStoredList();
-            let tempArr=[];
+
+            setSearchingElement(<h5 style={{color: "dimgray", fontFamily: "Poppins, sans-serif", marginTop: "-15px", marginBottom: "15px"}}>Searching...</h5>);
+            if(searchRef.current.value===''){
+                setSearchingElement(<></>);
+            }
+
+            let txt = e.target.textContent;
+            let x = giveStoredList();
+            let tempArr = [];
             let upcomingFlag=JSON.parse(localStorage.getItem("clickedFlag"));
             if(upcomingFlag){
                 for(let i=0;i<x.length;i++) {
@@ -135,6 +145,7 @@ function App() {
                     </div>
                 </div>
                 <div id={'showcase'}>
+                    {searchingElement}
                     {TodoListElements}
                 </div>
                 {
