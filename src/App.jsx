@@ -24,6 +24,7 @@ function App() {
         function showUpcoming(){
             setupcomingFlag(true);
             let x=giveStoredList();
+            localStorage.setItem("clickedFlag",JSON.stringify(true));
             setTodoList([]);
             for(let i=0;i<x.length;i++){
                 if(x[i].stat==='upcoming') {
@@ -35,6 +36,7 @@ function App() {
         function showCompleted(){
             setupcomingFlag(false);
             let x=giveStoredList();
+            localStorage.setItem("clickedFlag",JSON.stringify(false));
             setTodoList([]);
             for(let i=0;i<x.length;i++){
                 if(x[i].stat==='completed') {
@@ -46,12 +48,14 @@ function App() {
         upcomingRef.current.addEventListener('click', (e) => {
             e.target.classList.add("selected");
             completedRef.current.classList.remove("selected");
+            searchRef.current.value='';
             showUpcoming();
         });
 
         completedRef.current.addEventListener('click', (e) => {
             e.target.classList.add("selected");
             upcomingRef.current.classList.remove("selected");
+            searchRef.current.value='';
             showCompleted();
         })
 
@@ -61,21 +65,23 @@ function App() {
             e.target.textContent = searchRef.current.value;
             let txt=e.target.textContent;
             let x=giveStoredList();
-            setTodoList([]);
+            let tempArr=[];
+            let upcomingFlag=JSON.parse(localStorage.getItem("clickedFlag"));
             if(upcomingFlag){
                 for(let i=0;i<x.length;i++) {
                     if (x[i].stat === 'upcoming' && x[i].name.toLowerCase().startsWith(txt.toLowerCase())) {
-                        setTodoList(TodoList => [...TodoList, x[i]]);
+                        tempArr = [...tempArr,x[i]];
                     }
                 }
             }
-            else {
+            else{
                 for(let i=0;i<x.length;i++) {
                     if (x[i].stat === 'completed' && x[i].name.toLowerCase().startsWith(txt.toLowerCase())) {
-                        setTodoList(TodoList => [...TodoList, x[i]]);
+                        tempArr = [...tempArr,x[i]];
                     }
                 }
             }
+            setTodoList(tempArr);
         })
     }, []);
 

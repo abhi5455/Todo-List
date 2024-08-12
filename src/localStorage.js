@@ -1,3 +1,5 @@
+let clickedFlag=true;
+localStorage.setItem("clickedFlag",JSON.stringify(clickedFlag));
 
 let todoListStack=JSON.parse(localStorage.getItem('todoListStack'));
 if(todoListStack===null) {
