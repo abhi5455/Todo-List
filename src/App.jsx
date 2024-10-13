@@ -122,6 +122,7 @@ function App() {
                     <div className='top-subgroup'>
                         <button className={'plusSpan'} onClick={() => {
                             setPopupVisible(true);
+                            upcomingRef.current.click();
                         }} style={{
                             backgroundColor: "#013141",
                             display: "flex",
