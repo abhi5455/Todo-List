@@ -40,6 +40,7 @@ export function AddPopup({cancelPopup,updateList}) {
                                 addToStack(task, date);
                                 updateList();
                             }
+
                         }}>ADD
                     </button>
                 </div>
