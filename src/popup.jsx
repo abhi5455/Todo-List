@@ -36,8 +36,10 @@ export function AddPopup({cancelPopup,updateList}) {
                     <button type={"reset"} onClick={cancelPopup}>CANCEL</button>
                     <button type={"submit"} onClick={
                         () => {
-                            addToStack(task, date);
-                            updateList();
+                            if(task!=="" && date!=="") {
+                                addToStack(task, date);
+                                updateList();
+                            }
                         }}>ADD
                     </button>
                 </div>
