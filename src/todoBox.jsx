@@ -22,6 +22,7 @@ export function TodoBox({taskName,date,id, updateList, flag}) {
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M9 11l3 3l8 -8"/>
                         <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9"/>
+                        <title>Done</title>
                     </svg>
                     : ""
                 }
@@ -34,6 +35,7 @@ export function TodoBox({taskName,date,id, updateList, flag}) {
                     <path d="M14 11l0 6"/>
                     <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/>
                     <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/>
+                    <title>Delete</title>
                 </svg>
             </div>
         </div>
